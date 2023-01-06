@@ -1,0 +1,273 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Used the 62.5% font size trick to convert the root 16px to base-10 system while using rems */
+    font-size: 62.5%;
+}
+
+/* ============================
+
+            CUSTOM VARIABLES
+
+=============================== */
+
+:root {
+    /**** colors ****/
+    --green: hsla(133, 100%, 30%, 1);
+    --yellow: hsla(44, 100%, 59%, 1);
+    --red: hsla(360, 71%, 43%, 1);
+    --purple: hsla(290, 100%, 40%, 1);
+    /**** font ****/
+    --alert-ff: normal 700 2rem/2rem 'Verdana';
+    --h1-ff: normal 700 4rem/3.5rem 'Verdana';
+    --h2-ff: normal 600 2rem/3.5rem 'Verdana';
+    --score-ff: normal 400 9rem/12.6rem 'Cursed Timer ULiL', sans-serif;
+    --btn-ff: normal 700 1.6rem/2.7rem 'Open Sans', sans-serif;
+}
+
+
+/* ============================
+
+            TYPOGRAPHY
+
+=============================== */
+
+.alerts p {
+    font: var(--alert-ff);
+    color: rgb(255, 213, 0);
+    display: none;
+}
+
+.new-game-btn {
+    font: var(--btn-ff);
+    font-size: 3.6rem;
+    line-height: 4.9rem;
+    margin-top: 2rem;
+}
+
+.score-count-container h1 {
+    font: var(--h1-ff);
+    color: white;
+}
+
+.score-count-container p {
+    font: var(--score-ff);
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+
+.difficulty-wrapper h2 {
+    font:  var(--h2-ff);
+    color: white;
+}
+
+.add-defender-btn,
+.remove-defender-btn {
+    font: var(--btn-ff);
+}
+
+.remove-defender-btn {
+    color: white;
+}
+
+/* ============================
+
+            BUTTONS
+
+=============================== */
+
+.new-game-btn {
+    background-color: var(--yellow);
+    border: solid .5rem black;
+    padding: 1rem 1.6rem;
+    cursor: pointer;
+    /* margin-top: 5rem; */
+}
+
+.new-game-btn:active {
+    background-color: rgba(255, 199, 46, 0.765);
+}
+
+
+/* ============================
+
+            IMAGES
+
+=============================== */
+
+.field-wrapper {
+    background-image: url(images/bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.goal-post {
+    position: absolute;
+    top: 0;
+}
+
+.goal-keeper {
+    position: absolute;
+    top: 7rem;
+    z-index: 3;
+}
+
+.defender {
+    position: absolute;
+    scale: .7;
+    z-index: 3;
+}
+
+.mid-defender {
+    top: 18rem;
+    display: none;
+}
+
+.hard-defender {
+    top: 30rem;
+    display: none;
+}
+
+.football {
+    cursor: pointer;
+    position: absolute;
+    top: 53rem;
+    transition: all 0.3s ease-in-out;
+    z-index: 5;
+}
+
+
+/* ============================
+
+            LAYOUT
+
+=============================== */
+
+body {
+    background-color: var(--green);
+    margin-top: 15rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    gap: 5rem;
+    margin-right: 5rem;
+}
+
+.field-wrapper,
+.game-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field-wrapper {
+    margin-left: 5rem;
+    min-width: 40rem;
+}
+
+.alerts {
+    border: solid 1px var(--green);
+    padding-bottom: 2rem;
+    height: 8rem;
+}
+
+
+.score-count-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.score-count-container {
+    gap: 2rem;
+}
+
+.score-count-container p {
+    background-color: black;
+    width: 230px;
+}
+
+.difficulty-wrapper h2 {
+    margin-top: 10rem;
+}
+
+#difficulty-select {
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+    cursor: pointer;
+    font: var(--btn-ff);
+}
+
+
+/* ============================
+
+            ANIMATIONS
+
+=============================== */
+
+.goal-keeper {
+    animation-name: block;
+    animation-duration: 2.5s;
+    animation-fill-mode: backwards;
+    /* animation-delay: 2s; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+#defender-one {
+    animation-name: defender-block;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    /* animation-delay: 2s; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#defender-two {
+    animation-name: defender-block;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+/* ============================
+
+            KEYFRAMES
+
+=============================== */
+
+@keyframes block {
+    from {
+        transform: translateX(12rem);
+    }
+
+    to {
+        transform: translateX(-12rem);
+    }
+
+}
+
+@keyframes defender-block {
+    from {
+        transform: translateX(20rem);
+    }
+
+    to {
+        transform: translateX(-20rem);
+    }
+
+}

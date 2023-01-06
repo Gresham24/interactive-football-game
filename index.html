@@ -1,0 +1,62 @@
+<!-- N.B: Designed to be viewed at a screen with a viewport of 1000px -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+        rel="stylesheet" />
+    <link
+        href="https://www.dafontfree.net/embed/Y3Vyc2VkLXRpbWVyLXVsaWwtcmVndWxhciZkYXRhLzE1MjYvYy8xNzA5ODcvQ3Vyc2VkVGltZXJVTGlMLnR0Zg"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="index.css">
+
+    <title>Interactive Football Game</title>
+</head>
+
+<body>
+    <main>
+        <section id="container" class="field-wrapper">
+            <img src="images/img-goal.png" id="goal-post" class="goal-post" alt="goal post">
+            <img src="images/keeper.png" id="goal-keeper" class="goal-keeper" alt="goal keeper">
+            <img src="images/football.png" id="football" class="football" alt="football">
+            <img src="images/img-player.svg" id="defender-one" class="mid-defender defender" alt="easy defender">
+            <img src="images/img-player.svg" id="defender-two" class="hard-defender defender" alt="hard defender">
+
+        </section>
+        <section class="game-details-wrapper">
+
+            <!-- Goal score and block alerts -->
+            <div class="alerts">
+                <p id="goal">GOAL!!!</p>
+                <p id="blocked">BLOCKED! </p>
+            </div>
+            <button id="new-game-btn" class="new-game-btn">NEW GAME</button>
+
+            <!-- Score board counter -->
+            <div class="score-count-container">
+                <h1>SCORE</h1>
+                <p id="score">0</p>
+            </div>
+
+            <!-- Difficulty selector dropdown -->
+            <div class="difficulty-wrapper">
+                <h2>SELECT DIFFICULTY</h2>
+                <select name="difficulty-select" id="difficulty-select">
+                    <option id="easy" value="easy">Easy</option>
+                    <option id="medium" value="medium">Medium</option>
+                    <option id="hard" value="hard">Hard</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
